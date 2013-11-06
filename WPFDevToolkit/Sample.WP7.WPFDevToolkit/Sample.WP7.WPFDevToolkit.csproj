@@ -48,12 +48,36 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GalaSoft.MvvmLight">
+      <HintPath>..\packages\Portable.MvvmLightLibs.4.1.27.6\lib\sl4-wp71\GalaSoft.MvvmLight.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras">
+      <HintPath>..\packages\Portable.MvvmLightLibs.4.1.27.6\lib\sl4-wp71\GalaSoft.MvvmLight.Extras.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Platform.WP75">
+      <HintPath>..\packages\Portable.MvvmLightLibs.4.1.27.6\lib\sl4-wp71\GalaSoft.MvvmLight.Platform.WP75.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=3.8.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unofficial.Blend.Interactivity.1.0.0\lib\sl4-wp71\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Phone" />
     <Reference Include="Microsoft.Phone.Interop" />
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\packages\Portable.CommonServiceLocator.1.2.2\lib\portable-net4+sl4+wp7+win8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime">
+      <HintPath>..\packages\Microsoft.Bcl.1.0.19\lib\sl4-windowsphone71\System.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks">
+      <HintPath>..\packages\Microsoft.Bcl.1.0.19\lib\sl4-windowsphone71\System.Threading.Tasks.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows" />
     <Reference Include="system" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Interactivity, Version=3.8.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unofficial.Blend.Interactivity.1.0.0\lib\sl4-wp71\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="mscorlib.extensions" />
   </ItemGroup>
@@ -61,17 +85,26 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Base\VMLocator.cs" />
+    <Compile Include="ViewModels\VMHome.cs" />
+    <Compile Include="Views\VHome.xaml.cs">
+      <DependentUpon>VHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VInformation.xaml.cs">
+      <DependentUpon>VInformation.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Page Include="MainPage.xaml">
+    <Page Include="Views\VHome.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\VInformation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -89,6 +122,20 @@
     </Content>
     <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PCL.WPFDevToolkit\PCL.WPFDevToolkit.csproj">
+      <Project>{CE2D0402-3B49-4B90-8820-89950F5E252C}</Project>
+      <Name>PCL.WPFDevToolkit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sample.PCL.WPFDevToolkit\Sample.PCL.WPFDevToolkit.csproj">
+      <Project>{CFED9AF3-4CEB-4386-B51F-351AE5B1AC2B}</Project>
+      <Name>Sample.PCL.WPFDevToolkit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WP7.WPFDevToolkit\WP7.WPFDevToolkit.csproj">
+      <Project>{4C01E00E-19DE-4727-93DE-CA979CF875D0}</Project>
+      <Name>WP7.WPFDevToolkit</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -99,4 +146,9 @@
   </Target>
   -->
   <ProjectExtensions />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.10\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.10\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.10\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.10\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
 </Project>

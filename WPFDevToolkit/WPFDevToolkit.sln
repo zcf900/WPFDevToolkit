@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WP8.WPFDevToolkit", "WP8.WP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W8.WPFDevToolkit", "W8.WPFDevToolkit\W8.WPFDevToolkit.csproj", "{C213876E-FDBA-479C-A228-7ADF26514F47}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.PCL.WPFDevToolkit", "Sample.PCL.WPFDevToolkit\Sample.PCL.WPFDevToolkit.csproj", "{CFED9AF3-4CEB-4386-B51F-351AE5B1AC2B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,16 @@ Global
 		{C213876E-FDBA-479C-A228-7ADF26514F47}.Release|x64.Build.0 = Release|x64
 		{C213876E-FDBA-479C-A228-7ADF26514F47}.Release|x86.ActiveCfg = Release|x86
 		{C213876E-FDBA-479C-A228-7ADF26514F47}.Release|x86.Build.0 = Release|x86
+		{CFED9AF3-4CEB-4386-B51F-351AE5B1AC2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFED9AF3-4CEB-4386-B51F-351AE5B1AC2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFED9AF3-4CEB-4386-B51F-351AE5B1AC2B}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{CFED9AF3-4CEB-4386-B51F-351AE5B1AC2B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CFED9AF3-4CEB-4386-B51F-351AE5B1AC2B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CFED9AF3-4CEB-4386-B51F-351AE5B1AC2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFED9AF3-4CEB-4386-B51F-351AE5B1AC2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFED9AF3-4CEB-4386-B51F-351AE5B1AC2B}.Release|ARM.ActiveCfg = Release|Any CPU
+		{CFED9AF3-4CEB-4386-B51F-351AE5B1AC2B}.Release|x64.ActiveCfg = Release|Any CPU
+		{CFED9AF3-4CEB-4386-B51F-351AE5B1AC2B}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

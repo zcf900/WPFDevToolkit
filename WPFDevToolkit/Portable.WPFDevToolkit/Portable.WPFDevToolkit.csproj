@@ -5,13 +5,13 @@
     <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CE2D0402-3B49-4B90-8820-89950F5E252C}</ProjectGuid>
+    <ProjectGuid>{3cb517a6-8100-4193-9544-b4a6adc0a6b2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PCL.WPFDevToolkit</RootNamespace>
-    <AssemblyName>PCL.WPFDevToolkit</AssemblyName>
+    <RootNamespace>Portable.WPFDevToolkit</RootNamespace>
+    <AssemblyName>Portable.WPFDevToolkit</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Profile104</TargetFrameworkProfile>
+    <TargetFrameworkProfile>Profile4</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
   </PropertyGroup>
@@ -34,13 +34,10 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
-    <Folder Include="Extensions\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\Design\DesignNavigationService.cs" />
-    <Compile Include="Services\Interfaces\INavigationService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -50,4 +47,5 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+
 </Project>
