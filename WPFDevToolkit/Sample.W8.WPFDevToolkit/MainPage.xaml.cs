@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using W8.WPFDevToolkit.UC.PopupControl;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -33,6 +34,12 @@ namespace Sample.W8.WPFDevToolkit
         /// property is typically used to configure the page.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+        }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var popup = new PopUpInputText.Popup();
+            var credentials = await popup.ShowAsync();
         }
     }
 }
