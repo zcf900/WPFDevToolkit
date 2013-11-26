@@ -101,6 +101,14 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <ProjectReference Include="..\PCL.WPFDevToolkit\PCL.WPFDevToolkit.csproj">
+      <Project>{ce2d0402-3b49-4b90-8820-89950f5e252c}</Project>
+      <Name>PCL.WPFDevToolkit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sample.PCL.WPFDevToolkit\Sample.PCL.WPFDevToolkit.csproj">
+      <Project>{cfed9af3-4ceb-4386-b51f-351ae5b1ac2b}</Project>
+      <Name>Sample.PCL.WPFDevToolkit</Name>
+    </ProjectReference>
     <ProjectReference Include="..\W8.WPFDevToolkit\W8.WPFDevToolkit.csproj">
       <Project>{c213876e-fdba-479c-a228-7adf26514f47}</Project>
       <Name>W8.WPFDevToolkit</Name>
@@ -110,10 +118,16 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Base\VMLocator.cs" />
+    <Compile Include="ViewModels\VMHome.cs" />
+    <Compile Include="ViewModels\VMUserControls.cs" />
+    <Compile Include="Views\VHome.xaml.cs">
+      <DependentUpon>VHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VUserControls.xaml.cs">
+      <DependentUpon>VUserControls.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -132,14 +146,57 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Common\AppStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Common\StandardStyles.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="MainPage.xaml">
+    <Page Include="Views\VHome.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\VUserControls.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="GalaSoft.MvvmLight">
+      <HintPath>..\packages\Portable.MvvmLightLibs.4.1.27.6\lib\netcore45\GalaSoft.MvvmLight.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras">
+      <HintPath>..\packages\Portable.MvvmLightLibs.4.1.27.6\lib\netcore45\GalaSoft.MvvmLight.Extras.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Platform.NetCore45">
+      <HintPath>..\packages\Portable.MvvmLightLibs.4.1.27.6\lib\netcore45\GalaSoft.MvvmLight.Platform.NetCore45.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\packages\Portable.CommonServiceLocator.1.2.2\lib\portable-net4+sl4+wp7+win8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\netcore45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Core">
+      <HintPath>..\packages\Rx-Core.2.1.30214.0\lib\NetCore45\System.Reactive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces">
+      <HintPath>..\packages\Rx-Interfaces.2.1.30214.0\lib\NetCore45\System.Reactive.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Linq">
+      <HintPath>..\packages\Rx-Linq.2.1.30214.0\lib\NetCore45\System.Reactive.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.PlatformServices">
+      <HintPath>..\packages\Rx-PlatformServices.2.1.30214.0\lib\NetCore45\System.Reactive.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Windows.UI.Interactivity">
+      <HintPath>..\packages\Windows.UI.Interactivity.1.3.0.0\lib\win8\Windows.UI.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="WinRtBehaviors">
+      <HintPath>..\packages\WinRtBehaviors.1.0.3\lib\winrt45\WinRtBehaviors.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
     <VisualStudioVersion>11.0</VisualStudioVersion>

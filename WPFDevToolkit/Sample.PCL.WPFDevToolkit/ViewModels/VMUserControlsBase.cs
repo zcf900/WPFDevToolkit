@@ -1,6 +1,4 @@
 ﻿using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
-using PCL.WPFDevToolkit.Services.Interfaces;
 using Sample.PCL.WPFDevToolkit.Common;
 using System;
 using System.Collections.Generic;
@@ -9,18 +7,18 @@ using System.Text;
 
 namespace Sample.PCL.WPFDevToolkit.ViewModels
 {
-    public class VMHomeBase : ViewModelBase
+    public class VMUserControlsBase : ViewModelBase
     {
         #region Services
 
         #endregion
 
         #region Properties
-        
+
         #endregion
 
         #region Constructors
-        public VMHomeBase()
+        public VMUserControlsBase()
         {
         }
         #endregion

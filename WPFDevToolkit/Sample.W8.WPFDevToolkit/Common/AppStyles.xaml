@@ -1,0 +1,35 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <SolidColorBrush x:Key="AppForeground" Color="Black"/>
+    <SolidColorBrush x:Key="AppBackground" Color="White"/>
+
+    <!--TextBlock-->
+    <Style x:Key="TextBlockBase" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource AppForeground}"/>
+    </Style>
+
+    <Style x:Key="AppTitle" TargetType="TextBlock" BasedOn="{StaticResource TextBlockBase}">
+        <Setter Property="FontSize" Value="80"/>
+        <Setter Property="Foreground" Value="{StaticResource AppBackground}"/>
+    </Style>
+    <Style x:Key="AppHeaderStyle" TargetType="TextBlock" BasedOn="{StaticResource TextBlockBase}">
+        <Setter Property="FontSize" Value="36"/>
+        <Setter Property="Foreground" Value="{StaticResource AppForeground}"/>
+    </Style>
+    
+    <!--Button-->
+    <Style x:Key="AppTextButton" TargetType="Button">        
+        <Setter Property="Foreground" Value="{StaticResource AppForeground}"/>
+        <Setter Property="Foreground" Value="{StaticResource AppForeground}"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Margin" Value="0,0,0,0"/>
+        <Setter Property="Padding" Value="0,0,0,0"/>
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="FontFamily" Value="Segoe UI"/>
+        <Setter Property="FontWeight" Value="ExtraLight"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+    </Style>
+</ResourceDictionary>

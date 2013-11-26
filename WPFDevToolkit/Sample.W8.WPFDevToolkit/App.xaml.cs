@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sample.W8.WPFDevToolkit.Views;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -64,7 +65,7 @@ namespace Sample.W8.WPFDevToolkit
                 // When the navigation stack isn't restored navigate to the first page,
                 // configuring the new page by passing required information as a navigation
                 // parameter
-                if (!rootFrame.Navigate(typeof(MainPage), args.Arguments))
+                if (!rootFrame.Navigate(typeof(VHome), args.Arguments))
                 {
                     throw new Exception("Failed to create initial page");
                 }

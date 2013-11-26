@@ -4,17 +4,22 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace Sample.WP7.WPFDevToolkit.ViewModels
+namespace Sample.W8.WPFDevToolkit.ViewModels
 {
     public class VMHome : VMHomeBase
     {
+        #region Services
+
+        #endregion
+
         #region Properties
 
         #endregion
 
         #region Constructors
-        public VMHome(INavigationService navigationService) : base()
+        public VMHome()
         {
         }
         #endregion
