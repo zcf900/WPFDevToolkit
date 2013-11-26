@@ -2,7 +2,7 @@
     x:Class="W8.WPFDevToolkit.UC.PopupControl.PopUpInputText"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:W8.WPFDevToolkit.UC"
+    xmlns:local="using:W8.WPFDevToolkit.UC.PopupControl"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
@@ -36,7 +36,10 @@
 
     </UserControl.Resources>
 
-    <Grid Height="300" Background="{StaticResource PopupBackground}">
+    <Grid
+        Height="300" 
+        Background="{StaticResource PopupBackground}">
+
         <Grid Margin="24,12,24,12" VerticalAlignment="Center">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -44,8 +47,9 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <TextBlock
+                x:Name="txtTitle"
                 Grid.Row="0"
-                Text="Introduce el nombre"
+                Text="Insert your text here"
                 Style="{StaticResource PopupTitleStyle}"/>
             <TextBox
                 x:Name="resultTextBox"

@@ -40,7 +40,7 @@ namespace W8.WPFDevToolkit.UC.PopupControl.Lib
             get { return DefaultPopupSettings; }
         }
 
-        protected UserControl Control
+        public UserControl Control
         {
             get
             {

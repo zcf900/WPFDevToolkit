@@ -21,14 +21,13 @@ namespace W8.WPFDevToolkit.UC.PopupControl
     {
         #region Properties
         private Popup m_popup;
-        public class Popup : PopupHelperWithResult<string, PopUpInputText>
-        {
-        }
+        public VMPopUpInputText layoutValues;
         #endregion
 
         #region Constructors
         public PopUpInputText()
         {
+            layoutValues = new VMPopUpInputText();
             this.InitializeComponent();
         }
         #endregion
@@ -53,6 +52,25 @@ namespace W8.WPFDevToolkit.UC.PopupControl
             m_popup.Result = resultTextBox.Text;
             var dummy = m_popup.CloseAsync();
         }
-        #endregion        
+        #endregion
+
+        #region Class
+        public class Popup : PopupHelperWithResult<string, PopUpInputText>
+        {
+        }
+        public class VMPopUpInputText
+        {
+            public string Title { get; set; }
+            public string AcceptButtonContent { get; set; }
+            public string CancelButtonContent { get; set; }
+        }
+        #endregion
+
+        #region Other
+        public void UpdateLayoutValues()
+        {
+            txtTitle.Text = layoutValues.Title;
+        }
+        #endregion
     }
 }

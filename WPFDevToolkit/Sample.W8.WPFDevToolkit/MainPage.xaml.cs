@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using W8.WPFDevToolkit.UC.PopupControl;
+using W8.WPFDevToolkit.UC.PopupControl.Lib;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -39,7 +40,11 @@ namespace Sample.W8.WPFDevToolkit
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             var popup = new PopUpInputText.Popup();
-            var credentials = await popup.ShowAsync();
+            var popupHelper = (PopupHelper)popup;
+            var control = (PopUpInputText)popupHelper.Control;
+            control.layoutValues.Title = "Introduce tu peso(Kg):";
+            control.UpdateLayoutValues();
+            var result = await popup.ShowAsync();
         }
     }
 }

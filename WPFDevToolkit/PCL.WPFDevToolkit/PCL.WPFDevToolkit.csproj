@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PCL.WPFDevToolkit</RootNamespace>
-    <AssemblyName>PCL.WPFDevToolkit</AssemblyName>
+    <AssemblyName>20131126_PCL.WPFDevToolkit</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Profile104</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
