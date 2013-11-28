@@ -34,6 +34,7 @@ namespace Sample.W8.WPFDevToolkit.ViewModels.Base
                     }
                 });
                 SimpleIoc.Default.Register<VMHome>();
+                SimpleIoc.Default.Register<VMUserControls>();
             }
         }
 
@@ -43,6 +44,15 @@ namespace Sample.W8.WPFDevToolkit.ViewModels.Base
             get
             {
                 return ServiceLocator.Current.GetInstance<VMHome>();
+            }
+        }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic", Justification = "This non-static member is needed for data binding purposes.")]
+        public VMUserControls UserControls
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<VMUserControls>();
             }
         }
     }

@@ -10,8 +10,8 @@
 
 
     <Grid Background="{StaticResource AppBackground}">
-        
-        
+
+
         <Grid.RowDefinitions>
             <RowDefinition Height="140"/>
             <RowDefinition Height="*"/>
@@ -39,17 +39,15 @@
                     <TextBlock
                         Text="Menú"
                         Style="{StaticResource AppHeaderStyle}"/>
-                    <ScrollViewer
-                        Margin="0,12,0,0"
-                        Grid.Row="1">
-                        <StackPanel>
-                            <Button
-                                Content="User Controls"
-                                Style="{StaticResource AppTextButton}"
-                                Command="{Binding CommonCommands.NavigateCommand}"
-                                CommandParameter="VUserControls"/>
-                        </StackPanel>
-                    </ScrollViewer>
+                    <StackPanel
+                            Margin="0,12,0,0"
+                            Grid.Row="1">
+                        <Button
+                            Content="User Controls"
+                            Style="{StaticResource AppTextButton}"
+                            Command="{Binding CommonCommands.NavigateCommand}"
+                            CommandParameter="VUserControls"/>
+                    </StackPanel>
                 </Grid>
             </Grid>
         </ScrollViewer>

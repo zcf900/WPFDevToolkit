@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 using Sample.PCL.WPFDevToolkit.Common;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,7 @@ namespace Sample.PCL.WPFDevToolkit.ViewModels
         #region CommonCommands
         private CommonCommands _commonCommands = new CommonCommands();
         public CommonCommands CommonCommands { get { return _commonCommands; } set { Set("CommonCommands", ref _commonCommands, value); } }
-        #endregion
+        #endregion        
         #endregion
     }
 }

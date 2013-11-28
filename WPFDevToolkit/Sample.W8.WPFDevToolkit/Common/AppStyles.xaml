@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    
+
     <SolidColorBrush x:Key="AppForeground" Color="Black"/>
     <SolidColorBrush x:Key="AppBackground" Color="White"/>
 
@@ -18,9 +18,12 @@
         <Setter Property="FontSize" Value="36"/>
         <Setter Property="Foreground" Value="{StaticResource AppForeground}"/>
     </Style>
-    
+    <Style x:Key="RegularTextStileStyle" TargetType="TextBlock" BasedOn="{StaticResource TextBlockBase}">
+        <Setter Property="FontSize" Value="22"/>
+    </Style>
+
     <!--Button-->
-    <Style x:Key="AppTextButton" TargetType="Button">        
+    <Style x:Key="AppTextButton" TargetType="Button">
         <Setter Property="Foreground" Value="{StaticResource AppForeground}"/>
         <Setter Property="Foreground" Value="{StaticResource AppForeground}"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
@@ -28,8 +31,20 @@
         <Setter Property="Padding" Value="0,0,0,0"/>
         <Setter Property="FontSize" Value="22"/>
         <Setter Property="FontFamily" Value="Segoe UI"/>
-        <Setter Property="FontWeight" Value="ExtraLight"/>
+        <Setter Property="FontWeight" Value="Light"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="MinHeight" Value="0"/>
+        <Setter Property="MinWidth" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid Background="Transparent">
+                        <ContentPresenter x:Name="Text" Content="{TemplateBinding Content}" />
+                        <VisualStateManager.VisualStateGroups/>                        
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 </ResourceDictionary>

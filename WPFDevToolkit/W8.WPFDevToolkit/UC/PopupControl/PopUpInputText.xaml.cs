@@ -5,6 +5,7 @@ using System.Linq;
 using W8.WPFDevToolkit.UC.PopupControl.Lib;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -61,6 +62,7 @@ namespace W8.WPFDevToolkit.UC.PopupControl
         public class VMPopUpInputText
         {
             public string Title { get; set; }
+            public string Result { get; set; }
             public string AcceptButtonContent { get; set; }
             public string CancelButtonContent { get; set; }
         }
@@ -69,7 +71,13 @@ namespace W8.WPFDevToolkit.UC.PopupControl
         #region Other
         public void UpdateLayoutValues()
         {
-            txtTitle.Text = layoutValues.Title;
+            if(!string.IsNullOrEmpty(layoutValues.Title))txtTitle.Text = layoutValues.Title;
+            if (!string.IsNullOrEmpty(layoutValues.Result)) resultTextBox.Text = layoutValues.Result;
+        }
+        protected override void OnKeyDown(KeyRoutedEventArgs e)
+        {
+            if (e.Key.Equals(VirtualKey.Enter)) AcceptResult(null, null);
+            base.OnKeyDown(e);
         }
         #endregion
     }

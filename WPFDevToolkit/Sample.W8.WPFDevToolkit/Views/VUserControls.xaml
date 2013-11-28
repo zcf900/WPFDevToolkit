@@ -5,9 +5,57 @@
     xmlns:local="using:Sample.W8.WPFDevToolkit.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    DataContext="{Binding UserControls, Source={StaticResource Locator}}">
 
-    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
-
+    <Grid Background="{StaticResource AppBackground}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Height="140" Background="{StaticResource AppForeground}">
+            <TextBlock
+                Text="User Controls"
+                Margin="80,0,0,0"
+                Foreground="White"
+                VerticalAlignment="Center"
+                Style="{StaticResource AppTitle}"/>
+        </Grid>
+        <ScrollViewer
+            Grid.Row="1"
+            Style="{StaticResource HorizontalScrollViewerStyle}">
+            <Grid Margin="80,50,80,50">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock
+                        Text="PopUps"
+                        Style="{StaticResource AppHeaderStyle}"/>
+                    <StackPanel
+                            Margin="0,12,0,0"
+                            Grid.Row="1">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                Style="{StaticResource RegularTextStileStyle}"
+                                Text="Current user name:"/>
+                            <TextBlock
+                                Margin="12,0,0,0"
+                                Style="{StaticResource RegularTextStileStyle}"
+                                Text="{Binding UserName, Mode=OneWay}"/>
+                        </StackPanel>
+                        <Button
+                            Margin="0,12,0,0"
+                            Content="Input PopUp"
+                            Style="{StaticResource AppTextButton}"
+                            Command="{Binding PopUpInputTextCommand}"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </ScrollViewer>
     </Grid>
 </Page>
