@@ -6,120 +6,163 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DesignHeight="300"
-    d:DesignWidth="400">
+    d:DesignHeight="600"
+    d:DesignWidth="500">
     <UserControl.Resources>
-        <SolidColorBrush x:Key="PopupBackground" Color="White"/>
-        <SolidColorBrush x:Key="PopupForeground" Color="Black"/>
-        <SolidColorBrush x:Key="SuggestedPopupForeground" Color="Blue"/>
+        <ResourceDictionary>
+            <Color x:Key="PopupBackgroundColor">#62a0d9</Color>
+            <Color x:Key="PopupForegroundColor">White</Color>
+            <Color x:Key="TextBoxForegroundColor">Black</Color>
+            <Color x:Key="SuggestedPopupForegroundColor">#42c1ff</Color>
 
-        <Style x:Key="PopupTitleStyle" TargetType="TextBlock">
-            <Setter Property="Foreground" Value="{StaticResource PopupForeground}"/>
-            <Setter Property="FontSize" Value="25"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="TextWrapping" Value="Wrap"/>
-        </Style>
-        <Style x:Key="PopupTextBoxStyle" TargetType="TextBox">
-            <Setter Property="Foreground" Value="{StaticResource PopupForeground}"/>
-            <Setter Property="Background" Value="{StaticResource PopupBackground}"/>
-            <Setter Property="BorderBrush" Value="{StaticResource PopupForeground}"/>
-            <Setter Property="FontSize" Value="25"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="MinWidth" Value="300"/>
-        </Style>
-        <Style x:Key="PopupButtonStyle" TargetType="Button">
-            <Setter Property="Foreground" Value="{StaticResource PopupForeground}"/>
-            <Setter Property="Background" Value="{StaticResource PopupBackground}"/>
-            <Setter Property="BorderBrush" Value="{StaticResource PopupForeground}"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="MinWidth" Value="155"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="ButtonBase">
-                        <Grid Background="Transparent">
-                            <VisualStateManager.VisualStateGroups>
-                                <VisualStateGroup x:Name="CommonStates">
-                                    <VisualState x:Name="Normal"/>
-                                    <VisualState x:Name="PointerOver"/>
-                                    <VisualState x:Name="Pressed">
-                                        <Storyboard>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="Border">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource PopupForeground}"/>
-                                            </ObjectAnimationUsingKeyFrames>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="ContentPresenter">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource PopupBackground}"/>
-                                            </ObjectAnimationUsingKeyFrames>
-                                        </Storyboard>
-                                    </VisualState>
-                                    <VisualState x:Name="Disabled"/>
-                                </VisualStateGroup>
-                                <VisualStateGroup x:Name="FocusStates">
-                                    <VisualState x:Name="Focused"/>
-                                    <VisualState x:Name="Unfocused"/>
-                                </VisualStateGroup>
-                                <VisualStateGroup x:Name="CheckStates">
-                                    <VisualState x:Name="Checked"/>
-                                    <VisualState x:Name="Unchecked"/>
-                                    <VisualState x:Name="Indeterminate"/>
-                                </VisualStateGroup>
-                            </VisualStateManager.VisualStateGroups>
-                            <Border x:Name="Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Margin="3">
-                                <ContentPresenter x:Name="ContentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" ContentTransitions="{TemplateBinding ContentTransitions}" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                            </Border>
-                            <Rectangle x:Name="FocusVisualWhite" IsHitTestVisible="False" Opacity="0" StrokeDashOffset="1.5" StrokeEndLineCap="Square" Stroke="{StaticResource FocusVisualWhiteStrokeThemeBrush}" StrokeDashArray="1,1"/>
-                            <Rectangle x:Name="FocusVisualBlack" IsHitTestVisible="False" Opacity="0" StrokeDashOffset="0.5" StrokeEndLineCap="Square" Stroke="{StaticResource FocusVisualBlackStrokeThemeBrush}" StrokeDashArray="1,1"/>
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <Style x:Key="SuggestedPopupButtonStyle" TargetType="Button" BasedOn="{StaticResource PopupButtonStyle}">
-            <Setter Property="Foreground" Value="{StaticResource PopupBackground}"/>
-            <Setter Property="Background" Value="{StaticResource SuggestedPopupForeground}"/>
-            <Setter Property="BorderBrush" Value="{StaticResource PopupForeground}"/>
-        </Style>
+            <SolidColorBrush x:Key="PopupBackground" Color="{StaticResource PopupBackgroundColor}"/>
+            <SolidColorBrush x:Key="PopupForeground" Color="{StaticResource PopupForegroundColor}"/>
+            <SolidColorBrush x:Key="TextBoxForeground" Color="{StaticResource TextBoxForegroundColor}"/>
+            <SolidColorBrush x:Key="SuggestedPopupForeground" Color="{StaticResource SuggestedPopupForegroundColor}"/>
+
+            <Style x:Key="PopupTitleStyle" TargetType="TextBlock">
+                <Setter Property="Foreground" Value="{StaticResource PopupForeground}"/>
+                <Setter Property="FontSize" Value="25"/>
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+                <Setter Property="TextWrapping" Value="Wrap"/>
+            </Style>
+            <Style x:Key="PopupDescriptionStyle" TargetType="TextBlock">
+                <Setter Property="Foreground" Value="{StaticResource PopupForeground}"/>
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="FontWeight" Value="Light"/>
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+                <Setter Property="TextWrapping" Value="Wrap"/>
+            </Style>
+            <Style x:Key="PopupTextBoxStyle" TargetType="TextBox">
+                <Setter Property="Foreground" Value="{StaticResource TextBoxForeground}"/>
+                <Setter Property="Background" Value="{StaticResource PopupForeground}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource PopupForeground}"/>
+                <Setter Property="FontWeight" Value="Light"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="TextWrapping" Value="Wrap"/>
+                <Setter Property="HorizontalAlignment" Value="Left"/>                
+            </Style>
+            <Style x:Key="PopupButtonStyle" TargetType="Button">
+                <Setter Property="Foreground" Value="{StaticResource PopupForeground}"/>
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderBrush" Value="{StaticResource PopupForeground}"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>                
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="ButtonBase">
+                            <Grid Background="Transparent">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal"/>
+                                        <VisualState x:Name="PointerOver"/>
+                                        <VisualState x:Name="Pressed">
+                                            <Storyboard>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="Border">
+                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="Black"/>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="BorderBrush" Storyboard.TargetName="Border">
+                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="White"/>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="ContentPresenter">
+                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="White"/>
+                                                </ObjectAnimationUsingKeyFrames>                                                
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Disabled"/>
+                                    </VisualStateGroup>
+                                    <VisualStateGroup x:Name="FocusStates">
+                                        <VisualState x:Name="Focused"/>
+                                        <VisualState x:Name="Unfocused"/>
+                                    </VisualStateGroup>
+                                    <VisualStateGroup x:Name="CheckStates">
+                                        <VisualState x:Name="Checked"/>
+                                        <VisualState x:Name="Unchecked"/>
+                                        <VisualState x:Name="Indeterminate"/>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Border x:Name="Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Margin="3">
+                                    <ContentPresenter x:Name="ContentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" ContentTransitions="{TemplateBinding ContentTransitions}" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                </Border>
+                                <Rectangle x:Name="FocusVisualWhite" IsHitTestVisible="False" Opacity="0" StrokeDashOffset="1.5" StrokeEndLineCap="Square" Stroke="{StaticResource FocusVisualWhiteStrokeThemeBrush}" StrokeDashArray="1,1"/>
+                                <Rectangle x:Name="FocusVisualBlack" IsHitTestVisible="False" Opacity="0" StrokeDashOffset="0.5" StrokeEndLineCap="Square" Stroke="{StaticResource FocusVisualBlackStrokeThemeBrush}" StrokeDashArray="1,1"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="SuggestedPopupButtonStyle" TargetType="Button" BasedOn="{StaticResource PopupButtonStyle}">
+                <Setter Property="Foreground" Value="{StaticResource PopupForeground}"/>
+                <Setter Property="Background" Value="{StaticResource SuggestedPopupForeground}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource PopupForeground}"/>
+            </Style>
+        </ResourceDictionary>
     </UserControl.Resources>
-
-    <Grid
-        Height="300" 
-        Background="{StaticResource PopupBackground}">
-
-        <Grid Margin="24,12,24,12" VerticalAlignment="Center">
+    <Grid Background="Transparent">
+        <Grid
+            x:Name="backGrid"
+            Background="{StaticResource PopupForeground}"
+            MaxHeight="351">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
-            <TextBlock
+        <Grid           
+            SizeChanged="mainGrid_SizeChanged"
+            x:Name="mainGrid"
+            Grid.Row="1"
+            VerticalAlignment="Center"
+            MinHeight="250"
+            Background="{StaticResource PopupBackground}">
+            <Grid
+                Width="400"
+                Margin="24,12,24,12">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock
                 x:Name="txtTitle"
                 Grid.Row="0"
                 Text="Insert your text here"
                 Style="{StaticResource PopupTitleStyle}"/>
-            <TextBox
-                x:Name="resultTextBox"
+                <TextBlock
+                x:Name="txtDescription"
                 Grid.Row="1"
+                Text="Please, insert a string value in the following text box please."
+                Style="{StaticResource PopupDescriptionStyle}"/>
+                <TextBox
+                x:Name="resultTextBox"
+                Grid.Row="2"
+                Width="400"
                 Margin="0,12,0,0"
                 Style="{StaticResource PopupTextBoxStyle}"/>
-            <Grid
-                Grid.Row="2"
-                HorizontalAlignment="Center"
-                Margin="0,12,0,0"
-                MinWidth="300">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.5*"/>
-                    <ColumnDefinition Width="0.5*"/>
-                </Grid.ColumnDefinitions>
-                <Button
-                    Grid.Column="0"
-                    Content="Aceptar"
-                    Style="{StaticResource SuggestedPopupButtonStyle}"
-                    Click="AcceptResult"/>
-                <Button
-                    Grid.Column="1"
-                    Content="Cancelar"
-                    Style="{StaticResource PopupButtonStyle}"
-                    Click="CancelResult"/>
+                <Grid
+                Grid.Row="3"
+                HorizontalAlignment="Right"
+                Margin="0,60,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition Width="12"/>
+                        <ColumnDefinition Width="0.5*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button
+                        x:Name="btnAccept"
+                        Grid.Column="0"
+                        Content="Accept"                    
+                        Click="AcceptResult"
+                        Style="{StaticResource SuggestedPopupButtonStyle}"/>
+                    <Button
+                        x:Name="btnCancel"
+                        Grid.Column="2"
+                        Content="Cancel"                   
+                        Click="CancelResult"
+                        Style="{StaticResource PopupButtonStyle}"/>
+                </Grid>
             </Grid>
+        </Grid>
         </Grid>
     </Grid>
 </UserControl>

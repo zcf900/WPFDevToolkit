@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using W8.WPFDevToolkit.UC.PopupControl;
 using W8.WPFDevToolkit.UC.PopupControl.Lib;
+using Windows.UI;
 
 namespace Sample.W8.WPFDevToolkit.ViewModels
 {
@@ -43,6 +44,12 @@ namespace Sample.W8.WPFDevToolkit.ViewModels
             var popupHelper = (PopupHelper)popup;
             var control = (PopUpInputText)popupHelper.Control;
             control.layoutValues.Title = "Introduce tu nombre";
+            control.layoutValues.Description = "Introduce tu nombre sin apellidos con la primera letra en mayúscula.";
+            //control.layoutValues.PopupBackgroundColor = Colors.Olive;
+            //control.layoutValues.PopupForegroundColor = Colors.LightSalmon;
+            //control.layoutValues.SuggestedPopupForegroundColor = Colors.OrangeRed;
+            //control.layoutValues.TextBoxForegroundColor = Colors.Black;
+            //control.layoutValues.PopupBackBackgroundColor = Colors.White;
             control.UpdateLayoutValues();
             UserName = await popup.ShowAsync();
         }
